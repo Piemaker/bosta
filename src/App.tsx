@@ -6,8 +6,11 @@ import { useState } from "react";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
 import ShipmentDetails from "./components/ShipmentDetails";
+import moment from "moment";
 
 function App() {
+  console.log(moment("2020-07-22T12:27:41.141Z").format("L"));
+  console.log(moment("2020-07-22T12:27:41.141Z").format("LT"));
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState <any>({});
@@ -41,7 +44,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <ShipmentDetails></ShipmentDetails>
+          <ShipmentDetails transitEvents = {data.TransitEvents}></ShipmentDetails>
         </Col>
       </Row>
     </Container>
