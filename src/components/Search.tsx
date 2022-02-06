@@ -4,8 +4,9 @@ import { FaSearch } from "react-icons/fa";
 type Props = {
   setIsError: React.Dispatch<React.SetStateAction<boolean>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setData: React.Dispatch<any>;
 };
-const Search: React.FC<Props> = ({ setIsError, setIsLoading }) => {
+const Search: React.FC<Props> = ({ setIsError, setIsLoading,setData }) => {
   const defaultURL = "https://tracking.bosta.co/shipments/track/";
   const [packageId, setPackageId] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,6 +23,7 @@ const Search: React.FC<Props> = ({ setIsError, setIsLoading }) => {
         const data = await response.json();
         console.log("🚀 ~ file: Search.tsx ~ line 17 ~ fetchData ~ data", data);
         setIsLoading(false);
+        setData(data);
       }
     } catch (error) {
       console.log("🚀 ~ file: Search.tsx ~ line 23 ~ fetchData ~ error", error);
@@ -43,7 +45,7 @@ const Search: React.FC<Props> = ({ setIsError, setIsLoading }) => {
     }
   }, []);
   return (
-    <Form className="cairo-font" onSubmit={handleSubmit}>
+    <Form className="cairo-font border rounded p-3 shadow" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-danger display-6">
           <b>تتبع شحنتك</b>
