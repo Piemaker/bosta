@@ -6,9 +6,9 @@ export default function Error({ isError = false }: Props) {
   return (
     <>
       {isError ? (
-        <Container className = "mt-3">
+        <Container className="mt-3">
           <Row>
-            <Col md = "6" className = "p-0 m-auto">
+            <Col md="6" className="p-0 m-auto">
               <Alert className="cairo-font text-center" variant={"danger"}>
                 رقم الشحنة هذا غير صالح
               </Alert>

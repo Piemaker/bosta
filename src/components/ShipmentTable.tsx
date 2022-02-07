@@ -2,7 +2,9 @@ import moment from "moment";
 import React from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { detailsArabicMapping, hubArabicMapping, isValidKey } from "../util";
+import ClientAddress from "./ClientAddress";
 import ShipmentRow from "./ShipmentRow";
+import UserInquiry from "./UserInquiry";
 interface TransitEvent {
   state: string;
   timestamp: string;
@@ -16,14 +18,16 @@ export default function ShipmentDetails({ transitEvents = [] }: Props) {
   return (
     <>
       {transitEvents.length ? (
-        <Container className="my-3 p-0 cairo-font">
+        <Container className="p-0 cairo-font">
           <Row>
-            <Col>
+            <Col md = "8">
               <h2 className="text-muted table-title">تفاصيل الشحنة</h2>
+
               <Table
                 borderless
                 hover
-                className="shadow border-1 rounded cairo-font my-3"
+                bordered
+                className="shadow cairo-font"
               >
                 <thead className="table-bg-muted table-hd-font">
                   <tr>
@@ -51,7 +55,7 @@ export default function ShipmentDetails({ transitEvents = [] }: Props) {
                     if (isValidKey(state, detailsArabicMapping)) {
                       details = detailsArabicMapping[state];
                     }
-                    if(isValidKey(hub, hubArabicMapping)){
+                    if (isValidKey(hub, hubArabicMapping)) {
                       hub = hubArabicMapping[hub];
                     }
                     return (
@@ -68,7 +72,16 @@ export default function ShipmentDetails({ transitEvents = [] }: Props) {
                 </tbody>
               </Table>
             </Col>
+            <Col md = "4">
+             <ClientAddress address="امبابة شارع طلعت حرب مدينة العُمال بجوار البرنس منزل 17 بلوك 22 ,, cairo"></ClientAddress>
+             <Row className = "mt-2">
+               <Col>
+               <UserInquiry></UserInquiry>
+               </Col>
+             </Row>
+            </Col>
           </Row>
+          <Row></Row>
         </Container>
       ) : (
         <></>

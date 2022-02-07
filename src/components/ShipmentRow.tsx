@@ -8,7 +8,7 @@ interface Props {
 };
 
 export default function ShipmentRow({hub = "No details", date, time , details = "No details", reason = ""}: Props) {
-  return(<tr className = "table-row-font text-muted">
+  return(<tr className = "table-row-font  text-muted">
           <td>{hub}</td>
           <td>{date}</td>
           <td>{time}</td>
