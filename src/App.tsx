@@ -7,6 +7,7 @@ import Loading from "./components/Loading";
 import Error from "./components/Error";
 import ShipmentDetails from "./components/ShipmentTable";
 import ClientAddress from "./components/ClientAddress";
+import StatusBar from "./components/StatusBar";
 
 function App() {
   const [isError, setIsError] = useState(false);
@@ -40,9 +41,14 @@ function App() {
           <Error isError={isError}></Error>
         </Col>
       </Row>
-      <Row className = "my-3">
+      <Row>
+        <Col className = "my-3">
+         <StatusBar></StatusBar>
+        </Col>
+      </Row>
+      <Row className="my-3">
         <Col>
-          <ShipmentDetails transitEvents = {data.TransitEvents}></ShipmentDetails>
+          <ShipmentDetails transitEvents={data.TransitEvents}></ShipmentDetails>
         </Col>
       </Row>
     </Container>

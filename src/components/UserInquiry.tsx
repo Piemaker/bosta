@@ -9,7 +9,7 @@ export default function UserInquiry() {
             <img src={question} className="img-fluid" alt="Inquiry svg" />
           </Col>
           <Col xs="8">
-            <p className = "inquiry-p-font">هل توجد مشكلة في شحنتك؟!</p>
+            <p className = "inquiry-">هل توجد مشكلة في شحنتك؟!</p>
             <Button variant="danger" className="btn w-100 rounded-pill ">
               ابلاع عن مشكلة
             </Button>
