@@ -4,9 +4,15 @@ import { FaSearch } from "react-icons/fa";
 type Props = {
   setIsError: React.Dispatch<React.SetStateAction<boolean>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsDataReady: React.Dispatch<React.SetStateAction<boolean>>;
   setData: React.Dispatch<any>;
 };
-const Search: React.FC<Props> = ({ setIsError, setIsLoading,setData }) => {
+const Search: React.FC<Props> = ({
+  setIsError,
+  setIsLoading,
+  setData,
+  setIsDataReady,
+}) => {
   const defaultURL = "https://tracking.bosta.co/shipments/track/";
   const [packageId, setPackageId] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -24,6 +30,10 @@ const Search: React.FC<Props> = ({ setIsError, setIsLoading,setData }) => {
         console.log("🚀 ~ file: Search.tsx ~ line 17 ~ fetchData ~ data", data);
         setIsLoading(false);
         setData(data);
+        setIsDataReady(true);
+      } else {
+        setIsLoading(false);
+        setIsError(true);
       }
     } catch (error) {
       console.log("🚀 ~ file: Search.tsx ~ line 23 ~ fetchData ~ error", error);
@@ -45,13 +55,16 @@ const Search: React.FC<Props> = ({ setIsError, setIsLoading,setData }) => {
     }
   }, []);
   return (
-    <Form className="cairo-font border rounded p-3 shadow" onSubmit={handleSubmit}>
+    <Form
+      className="cairo-font border rounded p-3 shadow"
+      onSubmit={handleSubmit}
+    >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-danger display-6">
           <b>تتبع شحنتك</b>
         </Form.Label>
         <Row>
-          <Col xs="10" md="11" >
+          <Col xs="10" md="11">
             <Form.Control
               type="text"
               placeholder="رقم الشحنة"

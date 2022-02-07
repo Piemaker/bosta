@@ -1,5 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Spartan:wght@800&display=swap');
+:root {
+  --statusBar: #35B600;
+}
 body{
   font-family: 'Cairo', sans-serif;
 }
@@ -59,7 +62,7 @@ body{
 }
 
 .track .step.active:before {
-    background: #FF5722
+    background: var(--statusBar);
 }
 
 .track .step::before {
@@ -72,7 +75,7 @@ body{
 }
 
 .track .step.active .icon {
-    background: #ee5435;
+     background: var(--statusBar);
     color: #fff
 }
 
@@ -95,4 +98,13 @@ body{
     margin-top: 7px;
     font-weight: 700;
     font-size : 0.9rem;
+}
+
+.status-bar h3{
+  font-size: 0.9rem;
+  color : #C6C6C6;
+}
+.status-bar p{
+  font-weight: 700;
+  font-size: 0.75rem;
 }

@@ -6,14 +6,15 @@ import { useState } from "react";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
 import ShipmentDetails from "./components/ShipmentTable";
-import ClientAddress from "./components/ClientAddress";
 import StatusBar from "./components/StatusBar";
+import moment from "moment";
+
 
 function App() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState <any>({});
-  
+  const [isDataReady, setIsDataReady] = useState(false);
+  const [data, setData] = useState<any>();
   return (
     <Container>
       <Row className="my-4">
@@ -25,6 +26,7 @@ function App() {
       <Row>
         <Col>
           <Search
+            setIsDataReady={setIsDataReady}
             setIsError={setIsError}
             setIsLoading={setIsLoading}
             setData={setData}
@@ -41,16 +43,30 @@ function App() {
           <Error isError={isError}></Error>
         </Col>
       </Row>
-      <Row>
-        <Col className = "my-3">
-         <StatusBar></StatusBar>
-        </Col>
-      </Row>
-      <Row className="my-3">
-        <Col>
-          <ShipmentDetails transitEvents={data.TransitEvents}></ShipmentDetails>
-        </Col>
-      </Row>
+      {isDataReady && (
+        <>
+          <Row>
+            <Col className="my-3">
+              <StatusBar
+                vendor="SOUQ"
+                state={data.CurrentStatus.state}
+                trackingNumber={data.TrackingNumber}
+                expectedDate={moment(data.CurrentStatus.timestamp).format("LL")}
+                date={moment(
+                  data.TransitEvents[data.TransitEvents.length - 1].timestamp
+                ).locale("ar").format("LLLL")}
+              ></StatusBar>
+            </Col>
+          </Row>
+          <Row className="my-3">
+            <Col>
+              <ShipmentDetails
+                transitEvents={data.TransitEvents}
+              ></ShipmentDetails>
+            </Col>
+          </Row>
+        </>
+      )}
     </Container>
   );
 }
