@@ -21,13 +21,13 @@ const Search: React.FC<Props> = ({
       setIsError(false);
       setIsLoading(true);
       const response = await fetch(url);
-      console.log(
-        "🚀 ~ file: Search.tsx ~ line 16 ~ fetchData ~ response",
-        response
-      );
+      // console.log(
+      // "🚀 ~ file: Search.tsx ~ line 16 ~ fetchData ~ response",
+      // response
+      // );
       if (response.ok) {
         const data = await response.json();
-        console.log("🚀 ~ file: Search.tsx ~ line 17 ~ fetchData ~ data", data);
+        // console.log("🚀 ~ file: Search.tsx ~ line 17 ~ fetchData ~ data", data);
         setIsLoading(false);
         setData(data);
         setIsDataReady(true);
@@ -36,7 +36,7 @@ const Search: React.FC<Props> = ({
         setIsError(true);
       }
     } catch (error) {
-      console.log("🚀 ~ file: Search.tsx ~ line 23 ~ fetchData ~ error", error);
+      // console.log("🚀 ~ file: Search.tsx ~ line 23 ~ fetchData ~ error", error);
       // set error state to render error component
       setIsLoading(false);
       setIsError(true);
