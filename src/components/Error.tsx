@@ -1,4 +1,3 @@
-import React from "react";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 
 type Props = { isError: boolean };

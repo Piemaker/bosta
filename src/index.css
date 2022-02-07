@@ -19,6 +19,15 @@ body{
   height: 0.25rem;
   margin: 0 auto;
 }
+.table-title{
+  font-size: 1.25rem;
+}
 .table-bg-muted{
   background-color: #FAFAFA;
+}
+.table-hd-font {
+  color : #A4AEC0;
+}
+.table-row-font{
+  font-weight: 400;
 }
