@@ -1,7 +1,7 @@
 import moment from "moment";
 import React from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
-import { arabicMapping, isValidKey } from "../util";
+import { detailsArabicMapping, hubArabicMapping, isValidKey } from "../util";
 import ShipmentRow from "./ShipmentRow";
 interface TransitEvent {
   state: string;
@@ -48,8 +48,11 @@ export default function ShipmentDetails({ transitEvents = [] }: Props) {
                     }
                     const date = moment(timestamp).format("LT");
                     const time = moment(timestamp).format("L");
-                    if (isValidKey(state)) {
-                      details = arabicMapping[state];
+                    if (isValidKey(state, detailsArabicMapping)) {
+                      details = detailsArabicMapping[state];
+                    }
+                    if(isValidKey(hub, hubArabicMapping)){
+                      hub = hubArabicMapping[hub];
                     }
                     return (
                       <ShipmentRow
