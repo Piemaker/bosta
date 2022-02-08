@@ -27,9 +27,49 @@ const hubArabicMapping = {
   "Bosta HQ": "مقر بوسطة الرئيسي",
   "Tanta Hub": "مركز طنطا",
   "Mohandseen Hub": "مركز المهندسين",
+  "El Obour Hub": "مركز العبور"
 }
+const [GREEN, YELLOW, RED] = ["#36B602", "#F9BA02", "#F40407"];
+const statusObj = {
+  TICKET_CREATED: {
+    color: GREEN,
+    activeTracks: [true, false, false, false],
+  },
+  PACKAGE_RECEIVED: {
+    color: GREEN,
+    activeTracks: [true, true, false, false],
+  },
+  NOT_YET_SHIPPED: {
+    color: GREEN,
+    activeTracks: [true, true, false, false],
+  },
+  OUT_FOR_DELIVERY: {
+    color: GREEN,
+    activeTracks: [true, true, true, false],
+  },
+  RECEIVED_DELIVERY_LOCATION: {
+    color: GREEN,
+    activeTracks: [true, true, true, false],
+  },
+  DELIVERED: {
+    color: GREEN,
+    activeTracks: [true, true, true, true],
+  },
+  WAITING_FOR_CUSTOMER_ACTION: {
+    color: YELLOW,
+    activeTracks: [true, true, true, false],
+  },
+  DELIVERED_TO_SENDER: {
+    color: RED,
+    activeTracks: [true, true, true, false],
+  },
+  FAILED_TO_DELIVER: {
+    color: RED,
+    activeTracks: [true, true, true, false],
+  },
+};
 
 function isValidKey(value: string, object: {}): value is keyof typeof object {
   return value in object;
 }
-export { detailsArabicMapping, isValidKey, hubArabicMapping };
+export { detailsArabicMapping, isValidKey, hubArabicMapping, statusObj };

@@ -1,5 +1,4 @@
 import moment from "moment";
-import React from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { detailsArabicMapping, hubArabicMapping, isValidKey } from "../util";
 import ClientAddress from "./ClientAddress";
@@ -39,7 +38,6 @@ export default function ShipmentDetails({ transitEvents = [] }: Props) {
                 </thead>
                 <tbody>
                   {transitEvents.map((event, index) => {
-                    //TODO handle translation of hubs
                     let reason = "";
                     let hub = "لا توجد بيانات";
                     let details = "No details";

@@ -34,6 +34,7 @@ const Search: React.FC<Props> = ({
       } else {
         setIsLoading(false);
         setIsError(true);
+        setIsDataReady(false);
       }
     } catch (error) {
       // console.log("🚀 ~ file: Search.tsx ~ line 23 ~ fetchData ~ error", error);
@@ -56,7 +57,7 @@ const Search: React.FC<Props> = ({
   }, []);
   return (
     <Form
-      className="cairo-font border rounded p-3 shadow"
+      className="cairo-font border rounded p-4 shadow"
       onSubmit={handleSubmit}
     >
       <Form.Group className="mb-3" controlId="formBasicEmail">

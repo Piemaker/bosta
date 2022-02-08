@@ -1,110 +1,117 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Spartan:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Spartan:wght@800&display=swap");
 :root {
-  --statusBar: #35B600;
+  --statusBar: #fafafa;
 }
-body{
-  font-family: 'Cairo', sans-serif;
+body {
+  font-family: "Cairo", sans-serif;
 }
 .cairo-font {
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 .spartan-font {
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
 }
-.title{
+.title {
   font-weight: 600;
-  font-size : 5rem;
+  font-size: 5rem;
 }
 .title-underline {
-  background: #E15562;
+  background: #e15562;
   width: 12rem;
   height: 0.25rem;
   margin: 0 auto;
 }
-.table-title{
+.table-title {
   font-size: 1.25rem;
 }
-.table-bg-muted{
-  background-color: #FAFAFA;
+.table-bg-muted {
+  background-color: #fafafa;
 }
 .table-hd-font {
-  color : #A4AEC0;
+  color: #a4aec0;
 }
-.table-row-font{
+.table-row-font {
   font-weight: 400;
 }
-.inquiry-p-font{
+.inquiry-p-font {
   font-weight: 700;
 }
 
 /* STATUS BAR CSS */
 
 .track {
-    position: relative;
-    background-color: #ddd;
-    height: 7px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 100px;
-    margin-top: 50px;
+  position: relative;
+  background-color: #ddd;
+  height: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 125px;
+  margin-top: 50px;
 }
 
 .track .step {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    width: 25%;
-    margin-top: -18px;
-    text-align: center;
-    position: relative
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 25%;
+  margin-top: -18px;
+  text-align: center;
+  position: relative;
 }
 
 .track .step.active:before {
-    background: var(--statusBar);
+  background: var(--statusBar);
 }
 
 .track .step::before {
-    height: 7px;
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    top: 18px
+  height: 7px;
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+  top: 18px;
 }
 
 .track .step.active .icon {
-     background: var(--statusBar);
-    color: #fff
+  background: var(--statusBar);
+  color: #fff;
 }
 
 .track .icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    position: relative;
-    border-radius: 100%;
-    background: #ddd
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  border-radius: 100%;
+  background: #ddd;
 }
 
 .track .step.active .text {
-    color: #000
+  color: #000;
 }
 
 .track .text {
-    display: block;
-    margin-top: 7px;
-    font-weight: 700;
-    font-size : 0.9rem;
+  display: block;
+  margin-top: 7px;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
-.status-bar h3{
+.status-bar h3 {
   font-size: 0.9rem;
-  color : #C6C6C6;
+  color: #c6c6c6;
 }
-.status-bar p{
-  font-weight: 700;
-  font-size: 0.75rem;
+.status-bar p {
+  font-weight: 900;
+  font-size: 0.8rem;
+}
+#status-bar-error-span {
+  color: var(--statusBar);
+  font-size: 0.65rem;
+}
+#status-bar-error-p{
+  color: var(--statusBar);
+  font-size: 1.25rem;
 }
