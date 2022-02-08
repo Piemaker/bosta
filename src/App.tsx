@@ -8,8 +8,9 @@ import Error from "./components/Error";
 import ShipmentDetails from "./components/ShipmentTable";
 import StatusBar from "./components/StatusBar";
 import moment from "moment";
-import "moment/min/moment-with-locales";
 import "moment/locale/ar"
+// ! causes CI error on netlify
+// import "moment/min/moment-with-locales";
 
 function App() {
 
